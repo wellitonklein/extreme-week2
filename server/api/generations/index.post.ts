@@ -1,7 +1,7 @@
-import { v4 } from 'uuid';
 import { getAuth } from '#clerk';
+import { ElevenLabs, ElevenLabsClient } from 'elevenlabs';
 import { PinataSDK } from 'pinata';
-import { ElevenLabsClient, ElevenLabs } from 'elevenlabs';
+import { v4 } from 'uuid';
 
 interface Request {
   title: string;
@@ -21,7 +21,7 @@ export default eventHandler(async (event) => {
   if (!db) {
     throw createError({
       statusCode: 500,
-      statusMessage: 'Internal Server Error',
+      statusMessage: 'Database not found',
     });
   }
 
@@ -35,12 +35,12 @@ export default eventHandler(async (event) => {
     pinataGateway: config.pinataGateway,
   });
 
-  const elevenLabs = new ElevenLabsClient({
+  const elevenlabs = new ElevenLabsClient({
     apiKey: config.elevenlabsApiKey,
   });
 
-  const audio = await elevenLabs.generate({
-    voice: 'iP95p4xoKVk53GoZ742B',
+  const audio = await elevenlabs.generate({
+    voice: 'D38z5RcWu1voky8WS1ja',
     text: payload.content,
     output_format: ElevenLabs.OutputFormat.Mp32205032,
     model_id: 'eleven_multilingual_v2',
@@ -56,10 +56,9 @@ export default eventHandler(async (event) => {
     title: payload.title,
     content: payload.content,
     audioId: upload.cid,
-    createdAt: new Date(),
+    createAt: new Date(),
   };
 
   await db.insert(tables.generations).values(generation);
-
   return generation;
 });

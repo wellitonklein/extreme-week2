@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { useAudioSignedUrl } from '~/Composables/useAudioSignedUrl';
+import { useGenerations } from '~/Composables/useGenerations';
+import type { Generation } from '~/entities/Generation';
+
 definePageMeta({
   layout: 'admin',
   middleware: ['auth'],

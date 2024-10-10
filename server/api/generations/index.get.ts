@@ -14,7 +14,7 @@ export default eventHandler(async (event) => {
   if (!db) {
     throw createError({
       statusCode: 500,
-      statusMessage: 'Internal Server Error',
+      statusMessage: 'Database not found',
     });
   }
 

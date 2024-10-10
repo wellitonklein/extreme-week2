@@ -7,7 +7,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: '🔈 Lombardi.ai',
+      title: '🔈 Cid.ai',
     },
   },
 

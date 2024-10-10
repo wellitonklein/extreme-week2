@@ -1,9 +1,12 @@
 <script setup lang="ts">
+import { useGenerationCreate } from '~/Composables/useGenerationCreate';
+
 definePageMeta({
   layout: 'admin',
   middleware: ['auth'],
 });
 
+const { title, content, loading, create } = useGenerationCreate();
 const router = useRouter();
 
 const { title, content, loading, create } = useGenerationCreate();

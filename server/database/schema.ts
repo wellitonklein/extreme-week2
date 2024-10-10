@@ -1,7 +1,7 @@
 import { sql } from 'drizzle-orm';
-import { sqliteTable, text, integer } from 'drizzle-orm/sqlite-core';
+import { integer, sqliteTable as table, text } from 'drizzle-orm/sqlite-core';
 
-export const generations = sqliteTable('generations', {
+export const generations = table('generations', {
   id: text('id').primaryKey(),
   userId: text('user_id').notNull(),
   title: text('title').notNull(),
@@ -9,5 +9,5 @@ export const generations = sqliteTable('generations', {
   audioId: text('audio_id').notNull(),
   createdAt: integer('created_at', { mode: 'timestamp' })
     .notNull()
-    .default(sql`(CURRENT_DATE)`),
+    .default(sql`(unixepoch())`),
 });

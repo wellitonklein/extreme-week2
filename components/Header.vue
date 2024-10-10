@@ -17,7 +17,7 @@ const emit = defineEmits<{
   <header
     class="w-full flex justify-between items-center px-5 py-3 h-20 bg-gray-50"
   >
-    <span class="font-[800] text-xl">🔈 Lombardi.ai</span>
+    <span class="font-[800] text-xl">🔈 Cid.ai</span>
 
     <SignedOut>
       <div class="flex items-center gap-2">
@@ -48,7 +48,7 @@ const emit = defineEmits<{
           icon="pi pi-plus"
           @click="() => emit('new')"
         />
-
+        
         <UserButton />
       </div>
     </SignedIn>

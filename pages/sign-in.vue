@@ -7,5 +7,5 @@ definePageMeta({
 </script>
 
 <template>
-  <SignIn sign-up-url="/sign-up" />
+  <SignIn sign-in-url="/sign-up" />
 </template>

@@ -17,11 +17,9 @@ export default eventHandler(async (event) => {
   });
 
   const url = await pinata.gateways.createSignedURL({
-    cid,
+    cid: cid,
     expires: 3600,
   });
 
-  return {
-    url,
-  };
+  return { url };
 });
