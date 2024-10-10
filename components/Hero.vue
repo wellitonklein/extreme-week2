@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { SignedIn, SignedOut } from 'vue-clerk';
 const emit = defineEmits<{
   (e: 'register'): void;
   (e: 'new'): void;
@@ -18,20 +19,22 @@ const emit = defineEmits<{
       gerados por inteligência artificial.
     </p>
 
-    <!--
+    <SignedIn>
       <Button
         class="mt-5"
         label="Nova geração"
         icon="pi pi-plus"
         @click="() => emit('new')"
       />
-    -->
+    </SignedIn>
 
-    <Button
-      class="mt-5"
-      label="Começar agora"
-      icon="pi pi-plus"
-      @click="() => emit('register')"
-    />
+    <SignedOut>
+      <Button
+        class="mt-5"
+        label="Começar agora"
+        icon="pi pi-plus"
+        @click="() => emit('register')"
+      />
+    </SignedOut>
   </div>
 </template>

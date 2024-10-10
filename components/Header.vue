@@ -48,6 +48,7 @@ const emit = defineEmits<{
           icon="pi pi-plus"
           @click="() => emit('new')"
         />
+        
         <UserButton />
       </div>
     </SignedIn>

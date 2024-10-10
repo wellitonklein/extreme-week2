@@ -7,7 +7,6 @@ definePageMeta({
 });
 
 const { title, content, loading, create } = useGenerationCreate();
-
 const router = useRouter();
 
 const placeholder = `Aqui vou deixar um exemplo:
