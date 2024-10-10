@@ -1,11 +1,12 @@
 <script setup lang="ts">
+import { useGenerationCreate } from '~/Composables/useGenerationCreate';
+
 definePageMeta({
   layout: 'admin',
+  middleware: ['auth'],
 });
 
-const title = ref<string>('');
-const content = ref<string>('');
-const loading = ref<boolean>(false);
+const { title, content, loading, create } = useGenerationCreate();
 
 const router = useRouter();
 
@@ -17,7 +18,7 @@ Olha a promoção minha gente! Red bull latinha apenas 7 e 99, picanha o kilo ap
 const isDisabled = computed(() => !title.value || !content.value);
 
 const handleCreate = async () => {
-  // TODO: create generation
+  await create();
   router.push('/generations');
 };
 </script>
