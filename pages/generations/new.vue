@@ -9,7 +9,6 @@ definePageMeta({
 const { title, content, loading, create } = useGenerationCreate();
 const router = useRouter();
 
-const { title, content, loading, create } = useGenerationCreate();
 const placeholder = `Aqui vou deixar um exemplo:
 
 Olha a promoção minha gente! Red bull latinha apenas 7 e 99, picanha o kilo apenas 57 e 99
